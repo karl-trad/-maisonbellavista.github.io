@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison de Bellavista</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #F5F0E8;
+            --beige: #E8DFD0;
+            --gold: #8B7355;
+            --dark: #2C2416;
+            --brown: #6B5B4F;
+            --light-gold: #C4A882;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--cream);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--beige);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--brown);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 20px;
+            text-align: center;
+            background-color: var(--cream);
+        }
+
+        .hero-logo {
+            max-width: 300px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--dark);
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: var(--brown);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .hero-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 18px;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background-color: var(--gold);
+            margin: 30px auto;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            text-align: center;
+            color: var(--dark);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .product-images {
+            position: relative;
+            background-color: var(--cream);
+            padding: 30px;
+        }
+
+        .product-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(255,255,255,0.9);
+            padding: 5px 15px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--brown);
+        }
+
+        .product-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--dark);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: var(--brown);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: var(--dark);
+            color: white;
+            padding: 14px 40px;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--gold);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--beige);
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            color: var(--light-gold);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: var(--beige);
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            color: var(--light-gold);
+            margin-bottom: 30px;
+        }
+
+        .footer-contact a {
+            color: var(--light-gold);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 12px;
+            color: var(--brown);
+            letter-spacing: 2px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+                letter-spacing: 4px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Maison de Bellavista</div>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#collection">Collection</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-logo">
+            <img src="1000299526.png" alt="Maison de Bellavista Logo">
+        </div>
+        <h1>Maison de Bellavista</h1>
+        <p class="hero-subtitle">Summer Yacht Club</p>
+        <div class="divider"></div>
+        <p class="hero-tagline">Live where others vacation</p>
+    </section>
+
+    <!-- Products -->
+    <section class="products-section" id="collection">
+        <h2 class="section-title">Summer Collection</h2>
+
+        <div class="products-grid">
+
+            <!-- Product 1: Jetset Dreams -->
+            <div class="product-card">
+                <div class="product-images">
+                    <span class="image-label">Front</span>
+                    <img src="1000330385.png" alt="Jetset Dreams T-Shirt Front">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Jetset Dreams</h3>
+                    <p class="product-description">Private Life Edition<br>Été 2026</p>
+                    <div class="product-price">$30</div>
+                    <a href="https://wa.me/96176816561?text=Hello!%20I'm%20interested%20in%20the%20Jetset%20Dreams%20T-Shirt%20from%20Maison%20de%20Bellavista" class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 2: Amalfi Coast -->
+            <div class="product-card">
+                <div class="product-images">
+                    <span class="image-label">Front</span>
+                    <img src="1000330398.jpg" alt="Amalfi Coast T-Shirt Front">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Amalfi Coast</h3>
+                    <p class="product-description">Summer Escape 2026<br>Live where others vacation</p>
+                    <div class="product-price">$30</div>
+                    <a href="https://wa.me/96176816561?text=Hello!%20I'm%20interested%20in%20the%20Amalfi%20Coast%20T-Shirt%20from%20Maison%20de%20Bellavista" class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 3: Old Money Front -->
+            <div class="product-card">
+                <div class="product-images">
+                    <span class="image-label">Front</span>
+                    <img src="1000330396.jpg" alt="Old Money T-Shirt Front">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Old Money Classic</h3>
+                    <p class="product-description">Minimal Front Design<br>Maison de Bellavista</p>
+                    <div class="product-price">$30</div>
+                    <a href="https://wa.me/96176816561?text=Hello!%20I'm%20interested%20in%20the%20Old%20Money%20Classic%20T-Shirt%20from%20Maison%20de%20Bellavista" class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 4: Old Money Back -->
+            <div class="product-card">
+                <div class="product-images">
+                    <span class="image-label">Back</span>
+                    <img src="1000330399.jpg" alt="Old Money T-Shirt Back">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Old Money Classic</h3>
+                    <p class="product-description">Back Design<br>Maison de Bellavista</p>
+                    <div class="product-price">$30</div>
+                    <a href="https://wa.me/96176816561?text=Hello!%20I'm%20interested%20in%20the%20Old%20Money%20Classic%20T-Shirt%20from%20Maison%20de%20Bellavista" class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Product 5: Mango Edition -->
+            <div class="product-card">
+                <div class="product-images">
+                    <span class="image-label">Front</span>
+                    <img src="1000329645.png" alt="Mango Edition T-Shirt">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Mango Summer Edition</h3>
+                    <p class="product-description">Summer Edition Mango<br>Est. 2024</p>
+                    <div class="product-price">$30</div>
+                    <a href="https://wa.me/96176816561?text=Hello!%20I'm%20interested%20in%20the%20Mango%20Summer%20Edition%20T-Shirt%20from%20Maison%20de%20Bellavista" class="btn-whatsapp" target="_blank">Order via WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-logo">Maison de Bellavista</div>
+        <p class="footer-text">Summer Yacht Club — Est. 2024</p>
+        <p class="footer-contact">
+            WhatsApp: <a href="https://wa.me/96176816561">+961 76 816 561</a>
+        </p>
+        <div class="footer-bottom">
+            © 2026 MAISON DE BELLAVISTA. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+</body>
+</html>
